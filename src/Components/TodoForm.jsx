@@ -10,8 +10,8 @@ function TodoForm({todos,setTodos}) {
     console.log("Saisir un describe : ", describe);
     if (title === "" || describe === ""){
       alert("Remplir les champs de formulaire.");
-      //setDescribe('');
-      //setTitle('');
+      setDescribe('');
+      setTitle('');
     }
      
     else {
