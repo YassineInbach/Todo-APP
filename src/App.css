@@ -237,6 +237,22 @@ form .btn button:hover {
   background: white;
 }
 
+.made-with {
+  padding-top: 1em;
+  text-align: center;
+}
+
+.made-with p {
+  font-size: 14px;
+  color: white;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.made-with p span a {
+  text-decoration: underline;
+  color: rgb(210, 236, 18);
+}
 /*.parent-info.hidden{
     display: none;
 }
