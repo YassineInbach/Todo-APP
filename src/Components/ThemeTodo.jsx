@@ -46,6 +46,9 @@ function ThemeTodo({header,setHeader}) {
           <button onClick={() => handleChange("button2")}></button>
         </div>
       </div>
+      <div class="made-with">
+            <p>© 2024 - Made with ❤️ by <span><a  href= "https://github.com/YassineInbach" target="_blank">Yassine Inbach</a></span></p>
+        </div>
     </div>
   );
 }
