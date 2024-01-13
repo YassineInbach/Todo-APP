@@ -412,7 +412,8 @@ form .btn button:hover {
   .parent-info {
     align-items: inherit;
     flex-direction: column;
-    gap: 2px 0;
+    margin: 10px 10px 5px;
+    gap: 1px 0;
   }
 
   .parent-info .context {
