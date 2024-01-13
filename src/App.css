@@ -404,6 +404,11 @@ form .btn button:hover {
     width: 75px;
   }
 
+  #Fa-edit,
+  #Md-delete {
+    font-size: 1.5em;
+  }
+
   .parent-info {
     align-items: inherit;
     flex-direction: column;
