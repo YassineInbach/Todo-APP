@@ -1,0 +1,490 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Roboto:wght@700&display=swap");
+
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  height: 95vh;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title h1 {
+  font-size: 2em;
+  letter-spacing: 4px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.title .line {
+  background-color: #000000;
+  height: 4px;
+  width: 80px;
+}
+
+.App .form-todo {
+  margin: 1.5em 0;
+  padding: 1.5em 2em;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+form {
+  display: flex;
+  align-items: flex-end;
+  gap: 0 20px;
+}
+
+form .input {
+  display: flex;
+  flex-direction: column;
+  gap: 3px 0;
+  width: 350px;
+}
+
+form .input label {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+form .input input {
+  padding: 8px 10px;
+  border: 2px solid black;
+  background-color: #ffffff;
+}
+
+form .input input:focus {
+  outline: 2px solid white;
+  border: none;
+}
+
+form .input input[type="text"],
+form .input input::placeholder {
+  color: #000000;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+form .btn button {
+  padding: 7.4px 0;
+  width: 80px;
+  background: #ffffff;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  border: 2px solid black;
+}
+
+form .btn button:hover {
+  background: #000000;
+  color: #ffffff;
+  cursor: pointer;
+  border-color: white;
+}
+
+.background {
+  background-color: #d9d9d9;
+  margin: 1em 0;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+.scrollBar {
+  overflow-y: scroll;
+  max-height: 200px;
+}
+
+.parent-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px 10px;
+  padding: 10px 15px;
+  background: white;
+  border: 1.5px solid black;
+  border-radius: 5px;
+}
+
+.parent-info .context {
+  max-width: 678px;
+}
+
+.parent-info .context h3 {
+  position: relative;
+  font-size: 21px;
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
+  text-transform: capitalize;
+  word-wrap: break-word;
+  line-height: 27px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+}
+
+.parent-info .context h3::before {
+  content: "\25CF";
+  /* Code Unicode pour un cercle noir */
+  color: #000000;
+  /* Couleur du cercle */
+  position: absolute;
+  left: -6px;
+  top: 0%;
+}
+
+.parent-info .context p::before {
+  content: "\25CF";
+  /* Code Unicode pour un cercle noir */
+  color: #8e8d8d;
+  /* Couleur du cercle */
+  position: absolute;
+  left: -5px;
+  top: 34%;
+}
+
+.parent-info .context p {
+  position: relative;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 17px;
+  text-transform: capitalize;
+  word-wrap: break-word;
+  max-width: 100%;
+  padding: 10px 0 0 12px;
+}
+
+.parent-info .icons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0;
+}
+
+#Fa-edit {
+  font-size: xx-large;
+  color: blue;
+}
+
+#Fa-edit:hover,
+#Md-delete:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+#Md-delete {
+  font-size: xx-large;
+  color: red;
+}
+
+.background-theme {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.background-theme .btn-reset button {
+  padding: 7px 15px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+.background-theme .theme {
+  display: inline-flex;
+  align-items: center;
+  gap: 0 15px;
+  background: #d9d9d9;
+  padding: 8px 11px;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.background-theme .theme button {
+  width: 31px;
+  height: 25px;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.background-theme .btn-reset button:hover {
+  background: black;
+  color: white;
+}
+
+.background-theme .theme button:nth-child(1) {
+  background: hsl(0, 1%, 32%);
+}
+
+.background-theme .theme button:nth-child(2) {
+  background: white;
+}
+
+/*.parent-info.hidden{
+    display: none;
+}
+*/
+
+/*************************************************Media Query****************************************************/
+
+@media screen and (min-width: 768px) and (max-width: 900px) {
+  .App .form-todo {
+    margin: 1em 0;
+    padding: 1em 1.5em;
+  }
+
+  form {
+    gap: 0 12px;
+  }
+
+  form .input {
+    gap: 2px 0;
+    width: 300px;
+  }
+
+  form .input label {
+    font-size: 15px;
+  }
+
+  form .input input[type="text"],
+  form .input input::placeholder {
+    font-size: 12px;
+  }
+
+  form .input input {
+    padding: 7px 7px;
+  }
+
+  form .btn button {
+    padding: 5.4px 0;
+    width: 70px;
+  }
+
+  .parent-info {
+    margin: 10px 10px;
+  }
+
+  .parent-info .context {
+    max-width: 560px;
+  }
+
+  .parent-info .context h3 {
+    font-size: 17px;
+    line-height: 26px;
+    padding-bottom: 3px;
+  }
+
+  .parent-info .context p {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .background {
+    padding: 7px 5px;
+  }
+
+  .background-theme .btn-reset button {
+    padding: 5px 11px;
+    font-size: 15px;
+  }
+
+  .background-theme .theme {
+    gap: 0 11px;
+    padding: 7px;
+  }
+
+  .background-theme .theme button {
+    width: 27px;
+    height: 22px;
+    border-radius: 0;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 800px),
+  (not(min-width: 800px) and (max-width : 900px)) {
+  form {
+    gap: 0 10px;
+  }
+
+  form .input {
+    gap: 2px 0;
+    width: 280px;
+  }
+
+  .background {
+    margin: 1em 0;
+    padding: 5px 0;
+  }
+
+  .parent-info {
+    margin: 10px 15px;
+    padding: 11px 15px;
+  }
+
+  .parent-info .context {
+    max-width: 515px;
+  }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1000px) {
+  form {
+    gap: 0 10px;
+  }
+
+  form .input {
+    gap: 2px 0;
+    width: 340px;
+  }
+
+  form .input input {
+    padding: 7px 9px;
+  }
+
+  form .btn button {
+    padding: 6.4px 0;
+    width: 70px;
+  }
+
+  .parent-info .context {
+    max-width: 620px;
+  }
+
+  .parent-info {
+    margin: 14px 9px;
+    padding: 12px 25px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .title h1 {
+    font-size: 1.8em;
+  }
+
+  .App .form-todo {
+    margin: 1em 0 0;
+    padding: 1em 1.5em;
+    width: 90%;
+  }
+
+  form {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px 0;
+  }
+
+  form .input {
+    width: 100%;
+  }
+
+  form .input input {
+    padding: 7px 8px;
+  }
+
+  form .btn button {
+    padding: 5.4px 0;
+    width: 75px;
+  }
+
+  #Fa-edit,
+  #Md-delete {
+    font-size: x-large;
+  }
+
+  .parent-info {
+    align-items: inherit;
+    flex-direction: column;
+    gap: 2px 0;
+  }
+
+  .parent-info .context {
+    max-width: 531px;
+    width: 100%;
+  }
+
+  .parent-info .context h3 {
+    font-size: 15px;
+    line-height: 22px;
+    padding-bottom: 0;
+    padding-left: 10px;
+  }
+
+  .parent-info .context p {
+    font-size: 14px;
+    line-height: 17px;
+    padding: 10px 0 0 12px;
+  }
+
+  .background-theme .btn-reset button {
+    padding: 4px 12px;
+  }
+
+  .background-theme .theme {
+    gap: 0 12px;
+    padding: 6px 9px;
+  }
+
+  .background-theme .theme button {
+    width: 26px;
+    height: 23px;
+  }
+
+  .parent-info .icons {
+    justify-content: flex-end;
+    flex-direction: row;
+    gap: 0 10px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 500px),
+  (not(min-with: 480px) and (max-width : 767px)) {
+  .App .form-todo {
+    padding: 1em 1em;
+    width: 92%;
+  }
+
+  form .input label {
+    font-size: 15px;
+  }
+
+  form .input input[type="text"],
+  form .input input::placeholder {
+    font-size: 12px;
+  }
+
+  .background {
+    padding: 2px 0 10px 0px;
+  }
+
+  .scrollBar {
+    max-height: 180px;
+  }
+
+  .parent-info .context h3 {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .parent-info .context p {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
