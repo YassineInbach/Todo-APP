@@ -1,31 +1,64 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import "../App.css";
 
-function TodoForm({todos,setTodos}) {
-  const [describe, setDescribe] = useState("");
-  const [title, setTitle] = useState("");
+function TodoForm({
+  todos,
+  setTodos,
+  edit,
+  setEdit,
+  setTitle,
+  title,
+  setDescribe,
+  describe,
+}) {
+  // const [describe, setDescribe] = useState("");
+  // const [title, setTitle] = useState("");
 
-  const HandleClick = () => {
-    console.log("Saisir un title : ", title);
-    console.log("Saisir un describe : ", describe);
-    if (title === "" || describe === ""){
-      alert("Remplir les champs de formulaire.");
-      setDescribe('');
-      setTitle('');
+  const Ftitle = React.useRef();
+  const Ldescribe = React.useRef();
+
+  useEffect(() => {
+    if (edit !== null) {
+      setTitle(edit.Title);
+      setDescribe(edit.Describe);
+      Ftitle.current.focus();
+    } else {
+      Ftitle.current.focus();
     }
-     
-    else {
+  }, [edit]);
+
+  const generateUniqueId = () => {
+    return "_" + Math.random().toString(36).substr(2, 9);
+  };
+
+  const HandleClick = (e) => {
+    e.preventDefault();
+
+    if (title === "" || describe === "") {
+      alert("Remplir les champs de formulaire.");
+      setTitle("");
+      setDescribe("");
+    } else {
       let newTodo = {
+        id: edit !== null ? edit.id : generateUniqueId(), // Utilisez un générateur d'identifiants uniques
         Title: title,
         Describe: describe,
       };
-      todos.push(newTodo);
-      setTodos([...todos]);
-      console.log(todos)
-      setTitle('') ;
-      setDescribe('');
+
+      if (edit !== null) {
+        setTodos((prevTodos) =>
+          prevTodos.map((task) => (task.id === edit.id ? newTodo : task))
+        );
+      } else {
+        setTodos((prevTodos) => [newTodo, ...prevTodos]);
+      }
+
+      setEdit(null);
+      setTitle("");
+      setDescribe("");
     }
   };
+
   return (
     <div>
       <form action="">
@@ -35,7 +68,9 @@ function TodoForm({todos,setTodos}) {
             type="text"
             id="title"
             value={title}
+            //onKeyDown={titleInput()}
             onChange={(e) => setTitle(e.target.value)}
+            ref={Ftitle}
             placeholder="Enter your title"
           />
         </div>
@@ -44,14 +79,15 @@ function TodoForm({todos,setTodos}) {
           <input
             type="text"
             id="describe"
+            ref={Ldescribe}
             value={describe}
             onChange={(e) => setDescribe(e.target.value)}
             placeholder="Enter your describe"
           />
         </div>
         <div className="btn">
-          <button type="button" onClick={HandleClick}>
-            ADD
+          <button type="submit" onClick={HandleClick}>
+            {edit ? "Update" : "Add"}
           </button>
         </div>
       </form>
